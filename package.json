@@ -1,0 +1,19 @@
+{
+  "name": "lifepro-fit",
+  "version": "1.0.0",
+  "description": "LifePro Fit - Cycling & Running Prototype UI",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "keywords": [
+    "fitness",
+    "cycling",
+    "running",
+    "prototype",
+    "ui"
+  ],
+  "author": "",
+  "license": "ISC"
+}

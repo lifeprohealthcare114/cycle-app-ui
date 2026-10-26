@@ -1,0 +1,334 @@
+/* ==========================================================================
+   LifePro Fit - Base & Design System
+   ========================================================================== */
+
+:root {
+  /* Default Light Theme */
+  --bg: #F4F7F8;
+  --cd: #ffffff;
+  --tx: #0F1C22;
+  --mu: #64737C;
+  --ln: #E4EBEE;
+  --s2: #EBF0F3;
+  --acd: #0E9F8F;
+  --acl: #2DD4BF;
+  --ac: var(--acd);
+  --ax: #ffffff;
+  --out: #DCE4E7;
+  --or: #F27A24;
+  --bl: #2F8CF0;
+  --rd: #E5304F;
+  --gr: #4FA31B;
+  --pu: #7B5CE6;
+  --h1: #0C5A66;
+  --h2: #06303A;
+  --r1: #5BE6FF;
+  --r2: #2DD4A8;
+  --o1: #4CF0C8;
+  --o2: #18B9C9;
+  --device-frame: #1E293B;
+  --device-shadow: 0 25px 60px -15px rgba(15, 28, 34, 0.22), 0 0 0 1px rgba(0, 0, 0, 0.06);
+  color-scheme: light;
+}
+
+:root[data-theme="dark"] {
+  --bg: #061116;
+  --cd: #0E1D24;
+  --tx: #EEF5F7;
+  --mu: #8A9BA4;
+  --ln: #1B2C34;
+  --s2: #15262E;
+  --ac: var(--acl);
+  --ax: #04141A;
+  --out: #02070A;
+  --or: #FF9F5A;
+  --bl: #5AA9FF;
+  --rd: #FF6A82;
+  --gr: #8CD84A;
+  --pu: #B197FC;
+  --device-frame: #0A1317;
+  --device-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(255, 255, 255, 0.08);
+  color-scheme: dark;
+}
+
+/* Accent Themes */
+:root[data-ac="teal"] {
+  --acd: #0E9F8F;
+  --acl: #2DD4BF;
+  --h1: #0C5A66;
+  --h2: #06303A;
+  --r1: #5BE6FF;
+  --r2: #2DD4A8;
+  --o1: #4CF0C8;
+  --o2: #18B9C9;
+}
+
+:root[data-ac="ocean"] {
+  --acd: #2563EB;
+  --acl: #60A5FA;
+  --h1: #1E40AF;
+  --h2: #0B1B4D;
+  --r1: #7DD3FC;
+  --r2: #60A5FA;
+  --o1: #7DB9FF;
+  --o2: #2563EB;
+}
+
+:root[data-ac="sunset"] {
+  --acd: #D9500A;
+  --acl: #FB923C;
+  --h1: #9A3412;
+  --h2: #431407;
+  --r1: #FDBA74;
+  --r2: #FB7185;
+  --o1: #FDBA74;
+  --o2: #F97316;
+}
+
+:root[data-ac="violet"] {
+  --acd: #7C3AED;
+  --acl: #A78BFA;
+  --h1: #5B21B6;
+  --h2: #1E1065;
+  --r1: #C4B5FD;
+  --r2: #818CF8;
+  --o1: #A78BFA;
+  --o2: #7C3AED;
+}
+
+/* Reset & Box Sizing */
+html {
+  scroll-padding-top: env(safe-area-inset-top, 0px);
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  background: var(--out);
+  color: var(--tx);
+  font: 500 15px/1.45 'Manrope', system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow: hidden;
+  transition: background 0.3s ease;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+  border: 0;
+  background: none;
+  cursor: pointer;
+  user-select: none;
+}
+
+/* Device Shell / Mockup */
+#app {
+  position: relative;
+  width: 390px;
+  height: min(100dvh, 844px);
+  background: var(--bg);
+  border-radius: 44px;
+  overflow: hidden;
+  box-shadow: var(--device-shadow);
+  border: 1px solid var(--ln);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Simulated Status Bar for authentic prototype preview */
+#status-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+  font-size: 13px;
+  font-weight: 700;
+  z-index: 10;
+  pointer-events: none;
+  color: var(--tx);
+  letter-spacing: -0.01em;
+  transition: color 0.3s;
+}
+
+#status-bar .notch {
+  width: 110px;
+  height: 24px;
+  background: #000;
+  border-radius: 20px;
+  position: absolute;
+  left: 50%;
+  top: 8px;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 8px;
+}
+
+#status-bar.light-content {
+  color: #fff;
+}
+
+#status-bar-icons {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Viewport content container */
+#v {
+  position: absolute;
+  inset: 0;
+  overflow-y: auto;
+  padding: calc(44px + env(safe-area-inset-top, 0px)) 20px 20px;
+  background: var(--bg);
+  transition: background 0.3s;
+  scrollbar-width: thin;
+}
+
+#v.has-tabs {
+  padding-bottom: calc(84px + env(safe-area-inset-bottom, 0px));
+}
+
+#v::-webkit-scrollbar {
+  width: 4px;
+}
+#v::-webkit-scrollbar-thumb {
+  background: var(--ln);
+  border-radius: 4px;
+}
+
+#v.ob {
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+#v.live-view {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 24px;
+  background: var(--bg);
+  color: var(--tx);
+  transition: background 0.3s ease;
+}
+#v.live-view > * {
+  flex: none;
+}
+
+@media (max-width: 500px) {
+  #app {
+    width: 100%;
+    height: 100dvh;
+    border-radius: 0;
+    border: 0;
+    box-shadow: none;
+  }
+  #status-bar .notch {
+    display: none; /* Let native device notch handle it on actual mobile devices */
+  }
+}
+
+/* Micro-animations */
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes grow {
+  from {
+    transform: scaleY(0);
+  }
+}
+
+@keyframes draw {
+  from {
+    stroke-dashoffset: 1;
+  }
+}
+
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes pop {
+  0% { transform: scale(0.7); }
+  60% { transform: scale(1.18); }
+  100% { transform: scale(1); }
+}
+
+@keyframes pl {
+  from { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.55); }
+  to { box-shadow: 0 0 0 9px rgba(34, 197, 94, 0); }
+}
+
+@keyframes sp {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes pu {
+  50% { box-shadow: 0 0 0 16px color-mix(in srgb, var(--bl) 14%, transparent); }
+}
+
+#v > * {
+  animation: rise 0.55s cubic-bezier(0.2, 0.8, 0.2, 1) backwards;
+  animation-delay: calc(var(--v-anim-i, 0) * 45ms);
+}
+
+.g2 > *, .ls > * {
+  animation: rise 0.48s cubic-bezier(0.2, 0.8, 0.2, 1) backwards;
+  animation-delay: calc(var(--j, 0) * 50ms + 180ms);
+}
+
+.bar {
+  transform-box: fill-box;
+  transform-origin: 50% 100%;
+  animation: grow 0.65s cubic-bezier(0.2, 0.8, 0.2, 1) backwards;
+  animation-delay: calc(var(--d, 0) * 18ms + 120ms);
+}
+
+.dr {
+  stroke-dasharray: 1;
+  animation: draw 1.2s cubic-bezier(0.4, 0, 0.2, 1) 0.12s backwards;
+}
+
+.fa {
+  animation: fade 0.8s 0.35s backwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}

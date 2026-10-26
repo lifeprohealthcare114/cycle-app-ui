@@ -1,0 +1,519 @@
+/* ==========================================================================
+   LifePro Fit - Screen-Specific Styles
+   ========================================================================== */
+
+/* 1. Onboarding & Edit Profile Screens */
+.obh {
+  flex: none;
+  height: clamp(190px, 30vh, 260px);
+  padding: calc(34px + env(safe-area-inset-top, 0px)) 22px 0;
+  color: #fff;
+  background: linear-gradient(160deg, var(--o1), var(--o2));
+  position: relative;
+  transition: background 0.3s;
+}
+
+.pb {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.pb i {
+  flex: 1;
+  height: 5px;
+  border-radius: 9px;
+  background: rgba(255, 255, 255, 0.35);
+  position: relative;
+  overflow: hidden;
+}
+
+.pb i b {
+  position: absolute;
+  inset: 0 auto 0 0;
+  background: #fff;
+  border-radius: 9px;
+  transition: width 0.5s cubic-bezier(0.3, 0.9, 0.3, 1);
+}
+
+.obh h2 {
+  font-size: 30px;
+  font-style: italic;
+  font-weight: 800;
+  margin-top: 24px;
+  letter-spacing: -0.02em;
+}
+
+.obs {
+  flex: 1 0 auto;
+  position: relative;
+  margin-top: -30px;
+  background: var(--bg);
+  border-radius: 32px 32px 0 0;
+  padding: 28px 24px 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.gc {
+  display: grid;
+  gap: 14px;
+  margin-top: 32px;
+}
+
+.gb {
+  padding: 20px;
+  border-radius: 99px;
+  background: var(--s2);
+  font-weight: 700;
+  font-size: 17px;
+  transition: background 0.25s, color 0.25s, transform 0.15s;
+}
+
+.gb.on {
+  background: var(--ac);
+  color: var(--ax);
+}
+
+.ni {
+  width: 100%;
+  margin-top: 32px;
+  padding: 18px 20px;
+  border-radius: 18px;
+  border: 2px solid var(--ln);
+  background: var(--cd);
+  color: var(--tx);
+  font: 700 20px 'Manrope', system-ui, sans-serif;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.ni:focus {
+  border-color: var(--ac);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--ac) 18%, transparent);
+}
+
+.bn {
+  font-size: 64px;
+  font-weight: 800;
+  text-align: center;
+  letter-spacing: -0.035em;
+  margin-top: 6px;
+  font-variant-numeric: tabular-nums;
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+}
+
+.bn small {
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--mu);
+  margin-left: 6px;
+}
+
+.rl {
+  height: 70px;
+  margin-top: 10px;
+  background: repeating-linear-gradient(90deg, var(--mu) 0 2px, transparent 2px 14px) bottom / 100% 26px no-repeat;
+}
+
+.rl input {
+  width: 100%;
+  appearance: none;
+  -webkit-appearance: none;
+  background: none;
+  height: 70px;
+  margin: 0;
+  touch-action: pan-y;
+  cursor: ew-resize;
+}
+
+.rl input::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 8px;
+  height: 64px;
+  border-radius: 4px;
+  background: var(--ac);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.rl input::-moz-range-thumb {
+  width: 8px;
+  height: 64px;
+  border: 0;
+  border-radius: 4px;
+  background: var(--ac);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.nxw {
+  position: sticky;
+  bottom: 0;
+  margin-top: auto;
+  padding: 16px 0 calc(24px + env(safe-area-inset-bottom, 0px));
+  background: linear-gradient(transparent, var(--bg) 28%);
+}
+
+.nxw .btn {
+  margin: 0;
+}
+
+/* 2. Home Dashboard Header & Rings */
+.hc {
+  background: linear-gradient(160deg, var(--h1), var(--h2) 75%);
+  color: #fff;
+  border-radius: 28px;
+  padding: 16px 16px 18px;
+  margin-bottom: 12px;
+  box-shadow: 0 10px 28px rgba(12, 90, 102, 0.22);
+  position: relative;
+  overflow: hidden;
+}
+
+.hc .seg {
+  background: rgba(255, 255, 255, 0.12);
+  width: 62%;
+  margin: 0 auto 8px;
+}
+
+.hc .seg::before {
+  background: rgba(255, 255, 255, 0.24);
+  box-shadow: none;
+}
+
+.hc .seg button {
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.hc .seg .on {
+  color: #fff;
+}
+
+.rg {
+  position: relative;
+  display: grid;
+  place-items: center;
+  margin: 8px 0 18px;
+}
+
+.rc {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.rc span {
+  color: var(--r1);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.rc b {
+  font-size: 52px;
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  line-height: 1.1;
+  font-variant-numeric: tabular-nums;
+}
+
+.rc small {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 13px;
+}
+
+.rr {
+  transition: stroke-dashoffset 1.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.chs {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+}
+
+.chp {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 14px;
+  padding: 10px 4px;
+  text-align: center;
+}
+
+.chp b {
+  display: block;
+  font-size: 15px;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.chp span {
+  font-size: 11px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.wl {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 8px 0;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--mu);
+}
+
+.wl .on {
+  color: var(--ac);
+  font-weight: 700;
+}
+
+/* 3. Live Activity & Tracking */
+.spd {
+  font-size: 88px;
+  font-weight: 800;
+  letter-spacing: -0.045em;
+  line-height: 1;
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+  margin-top: 10px;
+}
+
+.zb {
+  display: flex;
+  gap: 4px;
+  margin-top: 20px;
+}
+
+.zb i {
+  flex: 1;
+  height: 8px;
+  border-radius: 9px;
+  background: var(--s2);
+  transition: background 0.4s;
+}
+
+.zb i.on {
+  background: var(--rd);
+}
+
+.ctl {
+  margin-top: auto;
+  padding: 24px 0 16px;
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+}
+
+.cb {
+  width: 76px;
+  height: 76px;
+  border-radius: 50%;
+  background: var(--ac);
+  color: var(--ax);
+  display: grid;
+  place-items: center;
+  box-shadow: 0 8px 24px color-mix(in srgb, var(--ac) 30%, transparent);
+  transition: transform 0.15s, background 0.2s;
+}
+
+.cb:active {
+  transform: scale(0.92);
+}
+
+.cb.r {
+  background: var(--rd);
+  color: #fff;
+  box-shadow: 0 8px 24px color-mix(in srgb, var(--rd) 30%, transparent);
+}
+
+/* 4. Health & ECG Screen */
+.hh {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.hh i {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+.dm {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 14px;
+  margin-top: 6px;
+}
+
+.dm span {
+  font-size: 12px;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+.ecg-monitor {
+  background: #020c08;
+  background-image: 
+    linear-gradient(rgba(45, 212, 168, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(45, 212, 168, 0.08) 1px, transparent 1px);
+  background-size: 14px 14px;
+  border-radius: 20px;
+  border: 1px solid rgba(45, 212, 168, 0.2);
+  box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.6);
+  position: relative;
+  overflow: hidden;
+}
+
+.ek {
+  animation: ek linear infinite;
+}
+
+@keyframes ek {
+  to {
+    transform: translateX(-110px);
+  }
+}
+
+/* 5. Settings, Colors & Share Card */
+.sws {
+  display: flex;
+  gap: 14px;
+  margin-top: 12px;
+}
+
+.swt {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  color: #fff;
+  border: 3px solid transparent;
+  background-clip: padding-box;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.swt svg {
+  opacity: 0;
+  transform: scale(0.4);
+  transition: 0.25s;
+}
+
+.swt.on {
+  box-shadow: 0 0 0 3px var(--cd), 0 0 0 5px currentColor;
+  transform: scale(1.05);
+}
+
+.swt.on svg {
+  opacity: 1;
+  transform: none;
+}
+
+.shc {
+  border-radius: 26px;
+  padding: 22px;
+  color: #fff;
+  min-height: 310px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  text-align: left;
+  position: relative;
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.2);
+}
+
+.shc b {
+  font-size: 36px;
+  font-style: italic;
+  font-weight: 800;
+}
+
+.th {
+  display: flex;
+  gap: 10px;
+  margin: 14px 0 6px;
+}
+
+.th i {
+  flex: 1;
+  height: 46px;
+  border-radius: 12px;
+  border: 3px solid transparent;
+  cursor: pointer;
+  transition: border-color 0.2s, transform 0.15s;
+}
+
+.th i:hover {
+  transform: scale(1.04);
+}
+
+.th i.on {
+  border-color: var(--ac);
+  box-shadow: 0 0 0 2px var(--cd);
+}
+
+/* 6. Vital Deep-Dive & Zones Breakdown */
+.zn-card {
+  padding: 18px 16px;
+  margin-top: 12px;
+}
+
+.zn-card-title {
+  font-size: 17px;
+  font-weight: 700;
+  margin-bottom: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.zn-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 0;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.zn-row .zn-label {
+  width: 86px;
+  flex: none;
+  color: var(--tx);
+}
+
+.zn-row .zn-bar {
+  flex: 1;
+  height: 7px;
+  border-radius: 99px;
+  background: var(--s2);
+  overflow: hidden;
+}
+
+.zn-row .zn-fill {
+  height: 100%;
+  border-radius: 99px;
+  transition: width 0.4s ease;
+}
+
+.zn-row .zn-val {
+  width: 65px;
+  flex: none;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+  color: var(--mu);
+}
+
