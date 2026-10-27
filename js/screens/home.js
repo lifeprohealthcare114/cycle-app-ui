@@ -32,10 +32,10 @@ window.Screens.home = function() {
   const lv = ['hr', 'cd', 'sp', 'tp', 'lm', 'hv', 'hy'].filter(window.avail).slice(0, 4);
 
   const ch = [
-    [window.hm(t * 60 / 21), 'active time', '#C9BCFF'],
-    ['21.0', 'avg km/h', '#9BE3FF'],
-    ['34.6', 'max km/h', '#FFC48C'],
-    [window.f(t * 25), 'calories', '#FFC48C']
+    [window.hm(t * 60 / 21), 'active time', '#F59E0B'],
+    ['21.0', 'avg km/h', '#F59E0B'],
+    ['34.6', 'max km/h', '#F59E0B'],
+    [window.f(t * 25), 'calories', '#F59E0B']
   ];
 
   const recent = window.R[0];
@@ -60,7 +60,7 @@ window.Screens.home = function() {
     <div class="hc">
       ${window.seg([['d', 'D'], ['w', 'W'], ['m', 'M']], r, 'sr')}
       <div class="rg">
-        ${window.ring(p, 236, 18, 'url(#g1)', 'rgba(255,255,255,0.12)')}
+        ${window.ring(p, 236, 18, 'url(#g1)', 'color-mix(in srgb, var(--ac) 18%, var(--ln))')}
         <div class="rc">
           <span>${lb}</span>
           <b data-cu="${t.toFixed(1)}" data-d="1">${t.toFixed(1)}</b>

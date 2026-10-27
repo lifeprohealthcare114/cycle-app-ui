@@ -90,6 +90,7 @@ window.Screens.rides = function() {
           const isSelected = window.S.activeBar === i;
           const hasSelection = window.S.activeBar !== null && window.S.activeBar !== undefined;
           const barOpacity = hasSelection ? (isSelected ? '1' : '0.35') : '1';
+          const isHigh = x >= A;
           const fillColor = isSelected ? 'var(--ac)' : (isHigh ? 'var(--ac)' : 'var(--s2)');
           const dropShadow = isSelected ? 'filter:drop-shadow(0 2px 8px color-mix(in srgb, var(--ac) 40%, transparent));' : '';
           const periodText = r === 'd' ? `${i}:00–${i + 1}:00` : r === 'w' ? window.l7()[i] : `Day ${i + 1}`;

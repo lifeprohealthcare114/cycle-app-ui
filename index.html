@@ -1,21 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>LifePro Fit – Cycling & Running</title>
   <meta name="description" content="LifePro Fit prototype UI for cycling, running, and biometric telemetry.">
-  
+
   <!-- Modern Typography -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
-  
+
   <!-- Modular CSS Architecture -->
-  <link rel="stylesheet" href="css/base.css?v=5">
-  <link rel="stylesheet" href="css/components.css?v=5">
-  <link rel="stylesheet" href="css/screens.css?v=5">
+  <link rel="stylesheet" href="css/base.css?v=15">
+  <link rel="stylesheet" href="css/components.css?v=15">
+  <link rel="stylesheet" href="css/screens.css?v=15">
 </head>
+
 <body>
 
   <!-- Mobile Phone Mockup Device Container -->
@@ -27,20 +29,21 @@
       <div id="status-bar-icons">
         <!-- Signal Icon -->
         <svg width="14" height="12" viewBox="0 0 14 12" fill="currentColor">
-          <rect x="0" y="9" width="2" height="3" rx="0.5"/>
-          <rect x="4" y="6" width="2" height="6" rx="0.5"/>
-          <rect x="8" y="3" width="2" height="9" rx="0.5"/>
-          <rect x="12" y="0" width="2" height="12" rx="0.5"/>
+          <rect x="0" y="9" width="2" height="3" rx="0.5" />
+          <rect x="4" y="6" width="2" height="6" rx="0.5" />
+          <rect x="8" y="3" width="2" height="9" rx="0.5" />
+          <rect x="12" y="0" width="2" height="12" rx="0.5" />
         </svg>
         <!-- Wifi Icon -->
-        <svg width="14" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
-          <path d="M5 12.55a11 11 0 0 1 14.08 0M1.42 9a16 16 0 0 1 21.16 0M8.53 16.11a6 6 0 0 1 6.95 0M12 20h.01"/>
+        <svg width="14" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+          stroke-linecap="round">
+          <path d="M5 12.55a11 11 0 0 1 14.08 0M1.42 9a16 16 0 0 1 21.16 0M8.53 16.11a6 6 0 0 1 6.95 0M12 20h.01" />
         </svg>
         <!-- Battery Icon -->
         <svg width="22" height="11" viewBox="0 0 24 12" fill="none" stroke="currentColor" stroke-width="2">
-          <rect x="1" y="1" width="18" height="10" rx="3"/>
-          <path d="M21 4v4" stroke-linecap="round"/>
-          <rect x="3" y="3" width="12" height="6" rx="1.5" fill="currentColor"/>
+          <rect x="1" y="1" width="18" height="10" rx="3" />
+          <path d="M21 4v4" stroke-linecap="round" />
+          <rect x="3" y="3" width="12" height="6" rx="1.5" fill="currentColor" />
         </svg>
       </div>
     </div>
@@ -62,28 +65,30 @@
   <svg width="0" height="0" style="position:absolute;pointer-events:none">
     <defs>
       <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
-        <stop id="g1-stop1" offset="0" stop-color="var(--r1)"/>
-        <stop id="g1-stop2" offset="1" stop-color="var(--r2)"/>
+        <stop id="g1-stop1" offset="0" stop-color="var(--r1)" />
+        <stop id="g1-stop2" offset="1" stop-color="var(--r2)" />
       </linearGradient>
     </defs>
   </svg>
 
   <!-- Modular Scripts Architecture -->
-  <script src="js/config.js?v=5"></script>
-  <script src="js/icons.js?v=5"></script>
-  <script src="js/state.js?v=5"></script>
-  <script src="js/utils.js?v=5"></script>
+  <script src="js/config.js?v=11"></script>
+  <script src="js/icons.js?v=11"></script>
+  <script src="js/state.js?v=11"></script>
+  <script src="js/utils.js?v=11"></script>
 
   <!-- Separate Screen Modules -->
-  <script src="js/screens/onboarding.js?v=5"></script>
-  <script src="js/screens/home.js?v=5"></script>
-  <script src="js/screens/activity.js?v=5"></script>
-  <script src="js/screens/tracking.js?v=5"></script>
-  <script src="js/screens/health.js?v=5"></script>
-  <script src="js/screens/sensors.js?v=5"></script>
-  <script src="js/screens/settings.js?v=5"></script>
+  <script src="js/screens/onboarding.js?v=18"></script>
+  <script src="js/screens/home.js?v=18"></script>
+  <script src="js/screens/activity.js?v=18"></script>
+  <script src="js/screens/tracking.js?v=18"></script>
+  <script src="js/screens/health.js?v=18"></script>
+  <script src="js/screens/sensors.js?v=18"></script>
+  <script src="js/screens/profile_edit.js?v=18"></script>
+  <script src="js/screens/settings.js?v=18"></script>
 
   <!-- Main App Router & Bootstrapper -->
-  <script src="js/app.js?v=5"></script>
+  <script src="js/app.js?v=18"></script>
 </body>
+
 </html>

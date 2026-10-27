@@ -3,58 +3,77 @@
    ========================================================================== */
 
 :root {
-  /* Default Light Theme */
-  --bg: #F4F7F8;
+  /* Default Light Theme - Amber Gold */
+  --bg: #F8F7F4;
   --cd: #ffffff;
-  --tx: #0F1C22;
-  --mu: #64737C;
-  --ln: #E4EBEE;
-  --s2: #EBF0F3;
-  --acd: #0E9F8F;
-  --acl: #2DD4BF;
+  --tx: #14130E;
+  --mu: #6E6A5F;
+  --ln: #ECE8DE;
+  --s2: #F4F0E6;
+  --acd: #FCC232;
+  --acl: #FDCB5C;
   --ac: var(--acd);
-  --ax: #ffffff;
-  --out: #DCE4E7;
-  --or: #F27A24;
+  --ax: #161204;
+  --out: #E4DFD3;
+  --or: #F59E0B;
   --bl: #2F8CF0;
   --rd: #E5304F;
-  --gr: #4FA31B;
-  --pu: #7B5CE6;
-  --h1: #0C5A66;
-  --h2: #06303A;
-  --r1: #5BE6FF;
-  --r2: #2DD4A8;
-  --o1: #4CF0C8;
-  --o2: #18B9C9;
+  --gr: #10B981;
+  --pu: #8B5CF6;
+  --h1: #241D08;
+  --h2: #120E02;
+  --r1: #FDCB5C;
+  --r2: #FCC232;
+  --o1: #FDCB5C;
+  --o2: #FCC232;
   --device-frame: #1E293B;
-  --device-shadow: 0 25px 60px -15px rgba(15, 28, 34, 0.22), 0 0 0 1px rgba(0, 0, 0, 0.06);
+  --device-shadow: 0 25px 60px -15px rgba(20, 18, 10, 0.22), 0 0 0 1px rgba(0, 0, 0, 0.06);
   color-scheme: light;
 }
 
 :root[data-theme="dark"] {
-  --bg: #061116;
-  --cd: #0E1D24;
-  --tx: #EEF5F7;
-  --mu: #8A9BA4;
-  --ln: #1B2C34;
-  --s2: #15262E;
+  --bg: #0E0D08;
+  --cd: #181610;
+  --tx: #FAF9F4;
+  --mu: #A19D8E;
+  --ln: #28251B;
+  --s2: #222016;
   --ac: var(--acl);
-  --ax: #04141A;
-  --out: #02070A;
-  --or: #FF9F5A;
+  --ax: #161204;
+  --out: #0A0A06;
+  --or: #F59E0B;
   --bl: #5AA9FF;
   --rd: #FF6A82;
-  --gr: #8CD84A;
+  --gr: #10B981;
   --pu: #B197FC;
-  --device-frame: #0A1317;
+  --h1: #241D08;
+  --h2: #120E02;
+  --r1: #FDCB5C;
+  --r2: #FCC232;
+  --o1: #FDCB5C;
+  --o2: #FCC232;
+  --device-frame: #0A0A07;
   --device-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(255, 255, 255, 0.08);
   color-scheme: dark;
 }
 
 /* Accent Themes */
+:root[data-ac="yellow"] {
+  --acd: #FCC232;
+  --acl: #FDCB5C;
+  --ax: #161204;
+  --h1: #241D08;
+  --h2: #120E02;
+  --r1: #FDCB5C;
+  --r2: #FCC232;
+  --o1: #FDCB5C;
+  --o2: #FCC232;
+}
+
 :root[data-ac="teal"] {
   --acd: #0E9F8F;
   --acl: #2DD4BF;
+  --ax: #ffffff;
   --h1: #0C5A66;
   --h2: #06303A;
   --r1: #5BE6FF;
@@ -66,6 +85,7 @@
 :root[data-ac="ocean"] {
   --acd: #2563EB;
   --acl: #60A5FA;
+  --ax: #ffffff;
   --h1: #1E40AF;
   --h2: #0B1B4D;
   --r1: #7DD3FC;
@@ -77,6 +97,7 @@
 :root[data-ac="sunset"] {
   --acd: #D9500A;
   --acl: #FB923C;
+  --ax: #ffffff;
   --h1: #9A3412;
   --h2: #431407;
   --r1: #FDBA74;
@@ -88,6 +109,7 @@
 :root[data-ac="violet"] {
   --acd: #7C3AED;
   --acl: #A78BFA;
+  --ax: #ffffff;
   --h1: #5B21B6;
   --h2: #1E1065;
   --r1: #C4B5FD;

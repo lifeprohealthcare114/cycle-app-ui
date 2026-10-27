@@ -90,7 +90,7 @@ window.getVitalDeepDive = function(k, r) {
         <div class="zn-card-title">Heart rate zones</div>
         <div class="zn-row">
           <span class="zn-label">Recovery</span>
-          <div class="zn-bar"><div class="zn-fill" style="width:48%;background:#2DD4BF"></div></div>
+          <div class="zn-bar"><div class="zn-fill" style="width:48%;background:#FCC232"></div></div>
           <span class="zn-val">3h 20m</span>
         </div>
         <div class="zn-row">
@@ -141,7 +141,7 @@ window.getVitalDeepDive = function(k, r) {
         <div class="zn-card-title">Oxygen saturation stages</div>
         <div class="zn-row">
           <span class="zn-label">Optimal (97–100%)</span>
-          <div class="zn-bar"><div class="zn-fill" style="width:88%;background:#2DD4BF"></div></div>
+          <div class="zn-bar"><div class="zn-fill" style="width:88%;background:#FCC232"></div></div>
           <span class="zn-val">21h 35m</span>
         </div>
         <div class="zn-row">
@@ -186,7 +186,7 @@ window.getVitalDeepDive = function(k, r) {
         <div class="zn-card-title">Circadian temperature variation</div>
         <div class="zn-row">
           <span class="zn-label">Baseline (36.6°)</span>
-          <div class="zn-bar"><div class="zn-fill" style="width:72%;background:#2DD4BF"></div></div>
+          <div class="zn-bar"><div class="zn-fill" style="width:72%;background:#FCC232"></div></div>
           <span class="zn-val">17h 40m</span>
         </div>
         <div class="zn-row">
@@ -231,7 +231,7 @@ window.getVitalDeepDive = function(k, r) {
         <div class="zn-card-title">Autonomic recovery & readiness</div>
         <div class="zn-row">
           <span class="zn-label">Recovery score</span>
-          <div class="zn-bar"><div class="zn-fill" style="width:84%;background:#2DD4BF"></div></div>
+          <div class="zn-bar"><div class="zn-fill" style="width:84%;background:#FCC232"></div></div>
           <span class="zn-val">84 / 100</span>
         </div>
         <div class="zn-row">
@@ -276,7 +276,7 @@ window.getVitalDeepDive = function(k, r) {
         <div class="zn-card-title">Hydration & electrolyte balance</div>
         <div class="zn-row">
           <span class="zn-label">Optimal (>80%)</span>
-          <div class="zn-bar"><div class="zn-fill" style="width:68%;background:#2DD4BF"></div></div>
+          <div class="zn-bar"><div class="zn-fill" style="width:68%;background:#FCC232"></div></div>
           <span class="zn-val">16h 20m</span>
         </div>
         <div class="zn-row">
@@ -321,7 +321,7 @@ window.getVitalDeepDive = function(k, r) {
         <div class="zn-card-title">Cadence efficiency zones</div>
         <div class="zn-row">
           <span class="zn-label">Optimal (80–95)</span>
-          <div class="zn-bar"><div class="zn-fill" style="width:65%;background:#2DD4BF"></div></div>
+          <div class="zn-bar"><div class="zn-fill" style="width:65%;background:#FCC232"></div></div>
           <span class="zn-val">34m</span>
         </div>
         <div class="zn-row">
@@ -366,7 +366,7 @@ window.getVitalDeepDive = function(k, r) {
       <div class="zn-card-title">Pedal stroke symmetry</div>
       <div class="zn-row">
         <span class="zn-label">Left leg</span>
-        <div class="zn-bar"><div class="zn-fill" style="width:49.4%;background:#2DD4BF"></div></div>
+        <div class="zn-bar"><div class="zn-fill" style="width:49.4%;background:#FCC232"></div></div>
         <span class="zn-val">49.4%</span>
       </div>
       <div class="zn-row">

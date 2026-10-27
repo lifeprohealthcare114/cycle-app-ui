@@ -41,10 +41,8 @@ window.TY = [
 ];
 
 window.ACC = {
-  teal: ['Teal', '#0E9F8F'],
-  ocean: ['Ocean', '#2563EB'],
-  sunset: ['Sunset', '#EA580C'],
-  violet: ['Violet', '#7C3AED']
+  yellow: ['Amber Gold', '#FCC232'],
+  teal: ['Teal', '#0E9F8F']
 };
 
 window.LB = {

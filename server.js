@@ -52,9 +52,23 @@ const server = http.createServer((req, res) => {
   });
 });
 
-server.listen(PORT, () => {
+let currentPort = Number(process.env.PORT) || 5173;
+
+server.on('error', (err) => {
+  if (err.code === 'EADDRINUSE') {
+    console.warn(`[Port ${currentPort} in use] Trying port ${currentPort + 1}...`);
+    currentPort++;
+    setTimeout(() => {
+      server.listen(currentPort);
+    }, 200);
+  } else {
+    console.error('Server error:', err);
+  }
+});
+
+server.listen(currentPort, () => {
   console.log(`\n==================================================`);
   console.log(`  LifePro Fit Prototype Server is Running!`);
-  console.log(`  Local URL: http://localhost:${PORT}/`);
+  console.log(`  Local URL: http://localhost:${currentPort}/`);
   console.log(`==================================================\n`);
 });

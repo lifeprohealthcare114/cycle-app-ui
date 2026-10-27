@@ -3,8 +3,9 @@
    ========================================================================== */
 
 // Apply Theme and Accent Color System
-window.ap = function() {
-  const isDark = window.S.th === 'd' || (window.S.th === 'a' && window.matchMedia('(prefers-color-scheme: dark)').matches);
+window.ap = function () {
+  // Only explicitly set to dark when user selects Dark mode ('d'); Auto ('a') and Light ('l') resolve to light theme
+  const isDark = window.S.th === 'd';
   const doc = document.documentElement;
   doc.dataset.theme = isDark ? 'dark' : 'light';
   doc.dataset.ac = window.S.ac;
@@ -20,7 +21,7 @@ window.ap = function() {
 };
 
 // Segmented Control Animated Transition
-window.sg = function(el, i, fn, k) {
+window.sg = function (el, i, fn, k) {
   const p = el.parentNode;
   p.style.setProperty('--seg-i', i);
   p.style.setProperty('--i', i);
@@ -33,13 +34,13 @@ window.sg = function(el, i, fn, k) {
 };
 
 // Range switcher for Home / Activity
-window.sr = function(k) {
+window.sr = function (k) {
   window.S.rg = k;
   window.go(window.S.sc);
 };
 
 // Animated Number Count-Up
-window.cu = function() {
+window.cu = function () {
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
   document.querySelectorAll('[data-cu]').forEach(e => {
     const target = +e.dataset.cu;
@@ -63,7 +64,7 @@ window.cu = function() {
 };
 
 // Main Screen Navigation Router
-window.go = function(s, a) {
+window.go = function (s, a) {
   if (s === 'dev' && !['dev', 'scan', 'pair'].includes(window.S.sc)) {
     window.S.dvb = window.S.sc;
   }
@@ -97,7 +98,7 @@ window.go = function(s, a) {
   // Adjust Status Bar color contrast to match active theme
   if (statusBar) {
     const isDarkTheme = document.documentElement.dataset.theme === 'dark';
-    if (s === 'ob' || isDarkTheme) {
+    if (isDarkTheme) {
       statusBar.classList.add('light-content');
     } else {
       statusBar.classList.remove('light-content');
@@ -111,6 +112,9 @@ window.go = function(s, a) {
   // Render view from modular Screens registry
   if (window.Screens && typeof window.Screens[s] === 'function') {
     v.innerHTML = window.Screens[s](a);
+    if ((s === 'ob' || s === 'profile_edit') && typeof window.initRulerSlider === 'function') {
+      requestAnimationFrame(() => window.initRulerSlider());
+    }
   } else {
     v.innerHTML = `<div class="ctr"><div class="mu">Screen not found</div></div>`;
   }
@@ -145,7 +149,7 @@ window.go = function(s, a) {
 };
 
 // Update live data elements across the DOM
-window.upd = function() {
+window.upd = function () {
   document.querySelectorAll('[data-k]').forEach(e => {
     const k = e.dataset.k;
     if (k in window.M && window.avail(k)) {
