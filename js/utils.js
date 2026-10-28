@@ -255,7 +255,7 @@ window.hist = function(k, r) {
   const n = { d: 24, w: 7, m: 30 }[r];
   const [b, a] = window.HB[k];
   const dc = window.M[k][6] ? 1 : 0;
-  const cap = ['sp', 'hy', 'lm'].includes(k) ? 100 : 1e9;
+  const cap = ['sp', 'lm'].includes(k) ? 100 : 1e9;
   const sd = k.charCodeAt(0) + k.charCodeAt(1) + (r === 'w' ? 3 : r === 'm' ? 7 : 0);
 
   return Array.from({ length: n }, (_, i) => {

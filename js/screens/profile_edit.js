@@ -102,8 +102,16 @@ window.Screens.profile_edit = function() {
         <span class="form-label" style="margin:0">Height</span>
         <span class="tag" style="font-size:11px;padding:2px 8px;background:var(--s2);color:var(--ac);font-weight:700">cm</span>
       </div>
-      <div class="bn" id="bn-h" style="height:64px;font-size:48px;margin-top:2px">
-        <span style="min-width:92px">${u.h}</span><small style="font-size:20px">cm</small>
+      <div class="rw" style="justify-content:center;align-items:center;gap:14px;margin:2px 0 6px">
+        <button class="ib" style="width:38px;height:38px;background:var(--s2)" aria-label="Decrease Height" onclick="window.stepProfileMetric('h', -1)">
+          ${window.I('minus', 16)}
+        </button>
+        <div class="bn" id="bn-h" style="height:64px;font-size:46px;margin:0">
+          <span style="min-width:88px">${u.h}</span><small style="font-size:20px">cm</small>
+        </div>
+        <button class="ib" style="width:38px;height:38px;background:var(--s2)" aria-label="Increase Height" onclick="window.stepProfileMetric('h', 1)">
+          ${window.I('plus', 16)}
+        </button>
       </div>
       <div class="ruler-wrap" data-key="h" data-min="${hMin}" data-max="${hMax}" data-step="${hStep}" data-unit="cm" data-target="#bn-h span" data-onchange="updProfileLiveBMI" role="slider" aria-label="Height (cm)">
         <div class="ruler-needle"></div>
@@ -119,8 +127,16 @@ window.Screens.profile_edit = function() {
         <span class="form-label" style="margin:0">Weight</span>
         <span class="tag" style="font-size:11px;padding:2px 8px;background:var(--s2);color:var(--ac);font-weight:700">kg</span>
       </div>
-      <div class="bn" id="bn-w" style="height:64px;font-size:48px;margin-top:2px">
-        <span style="min-width:92px">${u.w}</span><small style="font-size:20px">kg</small>
+      <div class="rw" style="justify-content:center;align-items:center;gap:14px;margin:2px 0 6px">
+        <button class="ib" style="width:38px;height:38px;background:var(--s2)" aria-label="Decrease Weight" onclick="window.stepProfileMetric('w', -0.5)">
+          ${window.I('minus', 16)}
+        </button>
+        <div class="bn" id="bn-w" style="height:64px;font-size:46px;margin:0">
+          <span style="min-width:88px">${u.w}</span><small style="font-size:20px">kg</small>
+        </div>
+        <button class="ib" style="width:38px;height:38px;background:var(--s2)" aria-label="Increase Weight" onclick="window.stepProfileMetric('w', 0.5)">
+          ${window.I('plus', 16)}
+        </button>
       </div>
       <div class="ruler-wrap" data-key="w" data-min="${wMin}" data-max="${wMax}" data-step="${wStep}" data-unit="kg" data-target="#bn-w span" data-onchange="updProfileLiveBMI" role="slider" aria-label="Weight (kg)">
         <div class="ruler-needle"></div>
@@ -197,6 +213,35 @@ window.updProfileLiveBMI = function() {
   if (n) n.style.opacity = bmi.val >= 18.5 && bmi.val < 25 ? '1' : '0.35';
   if (o) o.style.opacity = bmi.val >= 25 && bmi.val < 30 ? '1' : '0.35';
   if (b) b.style.opacity = bmi.val >= 30 ? '1' : '0.35';
+};
+
+window.stepProfileMetric = function(key, delta) {
+  const min = key === 'h' ? 120 : 30;
+  const max = key === 'h' ? 220 : 200;
+  const step = key === 'h' ? 1 : 0.5;
+  let val = (window.S.u[key] || min) + delta;
+  val = Math.max(min, Math.min(max, val));
+  if (step < 1) val = parseFloat(val.toFixed(1));
+  else val = Math.round(val);
+  window.S.u[key] = val;
+
+  const span = document.querySelector(key === 'h' ? '#bn-h span' : '#bn-w span');
+  if (span) {
+    span.textContent = val;
+    span.style.transform = 'scale(1.04)';
+    setTimeout(() => { if (span) span.style.transform = 'scale(1)'; }, 80);
+  }
+
+  const wrap = document.querySelector(`.ruler-wrap[data-key="${key}"]`);
+  if (wrap) {
+    const track = wrap.querySelector('.ruler-track');
+    if (track) {
+      const tickWidth = 14;
+      const idx = Math.round((val - min) / step);
+      track.scrollTo({ left: idx * tickWidth, behavior: 'smooth' });
+    }
+  }
+  window.updProfileLiveBMI();
 };
 
 window.saveProfile = function() {

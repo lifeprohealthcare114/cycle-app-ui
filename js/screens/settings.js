@@ -89,15 +89,15 @@ window.Screens.me = function() {
       </div>
     </div>
 
-    <!-- 4. Devices & Connected Integrations -->
-    <div class="t2" style="font-size:13px;font-weight:700;color:var(--mu);text-transform:uppercase;letter-spacing:0.04em;margin:0 4px 8px">Devices & Integrations</div>
+    <!-- 4. Devices & Sensors -->
+    <div class="t2" style="font-size:13px;font-weight:700;color:var(--mu);text-transform:uppercase;letter-spacing:0.04em;margin:0 4px 8px">Devices & Sensors</div>
     <div class="cd ls" style="padding:4px 16px;margin-bottom:20px">
       <!-- Bluetooth Devices -->
       <div class="li" onclick="go('dev')">
         <span class="ic" style="--c:var(--bl);width:36px;height:36px">${window.I('bt', 18)}</span>
-        <div style="flex:1;margin-left:6px">
+        <div style="flex:1;margin-left:6px;min-width:0">
           <b>Devices</b>
-          <div class="mu" style="font-size:12px">${count ? `${count} paired & connected` : 'SmartGrip & PhysiLog ready'}</div>
+          <div class="mu" style="font-size:12px">${count ? `${count} paired & connected` : 'Baiget & Physilog ready'}</div>
         </div>
         <div style="display:flex;align-items:center;gap:6px">
           <span class="setting-badge ${count ? 'success' : ''}" style="font-size:11px">
@@ -110,35 +110,11 @@ window.Screens.me = function() {
       <!-- Auto-Reconnect Device -->
       <div class="li" onclick="window.toggleSetting('autoConnect')">
         <span class="ic" style="--c:var(--gr);width:36px;height:36px">${window.I('refresh', 18)}</span>
-        <div style="flex:1;margin-left:6px">
+        <div style="flex:1;margin-left:6px;min-width:0">
           <b>Auto-reconnect device</b>
           <div class="mu" style="font-size:12px">Pair automatically on app launch</div>
         </div>
         <div class="toggle-switch ${window.S.autoConnect ? 'on' : ''}"></div>
-      </div>
-
-      <!-- Apple Health / Google Fit Sync -->
-      <div class="li" onclick="window.toast('Apple Health & Google Fit synced')">
-        <span class="ic" style="--c:var(--rd);width:36px;height:36px">${window.I('heart', 18)}</span>
-        <div style="flex:1;margin-left:6px">
-          <b>Apple Health & Google Fit</b>
-          <div class="mu" style="font-size:12px">Sync vitals, calories & distance</div>
-        </div>
-        <span class="setting-badge success">
-          <i class="dot"></i>Connected
-        </span>
-      </div>
-
-      <!-- Strava Sync -->
-      <div class="li" onclick="window.toast('Strava auto-sync enabled')">
-        <span class="ic" style="--c:var(--or);width:36px;height:36px">${window.I('run', 18)}</span>
-        <div style="flex:1;margin-left:6px">
-          <b>Strava Integration</b>
-          <div class="mu" style="font-size:12px">Auto-upload rides and segment times</div>
-        </div>
-        <span class="setting-badge success">
-          <i class="dot"></i>Connected
-        </span>
       </div>
     </div>
 
@@ -146,12 +122,12 @@ window.Screens.me = function() {
     <div class="t2" style="font-size:13px;font-weight:700;color:var(--mu);text-transform:uppercase;letter-spacing:0.04em;margin:0 4px 8px">Preferences</div>
     <div class="cd" style="padding:16px;margin-bottom:20px">
       <!-- Distance / Speed Units -->
-      <div class="rw" style="justify-content:space-between;margin-bottom:8px">
-        <div>
-          <b style="font-size:14px">Units of measurement</b>
-          <div class="mu" style="font-size:12px">Pace, speed and distance</div>
+      <div class="rw" style="justify-content:space-between;align-items:center;gap:12px;margin-bottom:4px">
+        <div style="flex:1;min-width:0">
+          <b style="font-size:14px;white-space:nowrap">Units of measurement</b>
+          <div class="mu" style="font-size:12px;margin-top:2px">Pace, speed and distance</div>
         </div>
-        <div style="width:160px">
+        <div style="width:130px;flex-shrink:0">
           ${window.seg([['m', 'km / kg'], ['i', 'mi / lb']], window.S.units, 'setUnits')}
         </div>
       </div>
@@ -159,13 +135,13 @@ window.Screens.me = function() {
       <div style="height:1px;background:var(--ln);margin:14px 0"></div>
 
       <!-- Temperature Format -->
-      <div class="rw" style="justify-content:space-between;margin-bottom:8px">
-        <div>
-          <b style="font-size:14px">Temperature format</b>
-          <div class="mu" style="font-size:12px">Sensors & weather metrics</div>
+      <div class="rw" style="justify-content:space-between;align-items:center;gap:12px;margin-bottom:4px">
+        <div style="flex:1;min-width:0">
+          <b style="font-size:14px;white-space:nowrap">Temperature format</b>
+          <div class="mu" style="font-size:12px;margin-top:2px">Sensors & weather metrics</div>
         </div>
-        <div style="width:140px">
-          ${window.seg([['c', '°C (Celsius)'], ['f', '°F (Fahr.)']], window.S.tempUnit, 'setTempUnit')}
+        <div style="width:110px;flex-shrink:0">
+          ${window.seg([['c', '°C'], ['f', '°F']], window.S.tempUnit, 'setTempUnit')}
         </div>
       </div>
 
@@ -196,7 +172,7 @@ window.Screens.me = function() {
       <!-- Export Workout Data -->
       <div class="li" onclick="window.toast('Exporting 14 workouts in GPX & FIT archive...')">
         <span class="ic" style="--c:var(--bl);width:36px;height:36px">${window.I('download', 18)}</span>
-        <div style="flex:1;margin-left:6px">
+        <div style="flex:1;margin-left:6px;min-width:0">
           <b>Export workout records</b>
           <div class="mu" style="font-size:12px">Download GPX, FIT & CSV archives</div>
         </div>
@@ -206,7 +182,7 @@ window.Screens.me = function() {
       <!-- Offline Cache Cleanup -->
       <div class="li" onclick="window.clearCache()">
         <span class="ic" style="--c:var(--mu);width:36px;height:36px">${window.I('trash', 18)}</span>
-        <div style="flex:1;margin-left:6px">
+        <div style="flex:1;margin-left:6px;min-width:0">
           <b>Offline map & telemetry cache</b>
           <div class="mu" style="font-size:12px">3.4 MB cached sensor tiles</div>
         </div>
@@ -220,7 +196,7 @@ window.Screens.me = function() {
       <!-- App Version Display -->
       <div class="li" style="cursor:default">
         <span class="ic" style="--c:var(--ac);width:36px;height:36px">${window.I('info', 18)}</span>
-        <div style="flex:1;margin-left:6px">
+        <div style="flex:1;margin-left:6px;min-width:0">
           <b>Application Version</b>
           <div class="mu" style="font-size:12px">v2.4.2 (Build 204) · Production</div>
         </div>
@@ -231,23 +207,35 @@ window.Screens.me = function() {
 
       <!-- Help Center -->
       <div class="li" onclick="window.toast('Opening LifePro Fit Knowledgebase...')">
-        <b style="flex:1">Help Center & FAQs</b>
+        <span class="ic" style="--c:var(--bl);width:36px;height:36px">${window.I('info', 18)}</span>
+        <div style="flex:1;margin-left:6px;min-width:0">
+          <b>Help Center & FAQs</b>
+          <div class="mu" style="font-size:12px">Guides, sensor setup & troubleshooting</div>
+        </div>
         ${window.I('chev', 16)}
       </div>
 
       <!-- Terms of Service & Privacy -->
       <div class="li" onclick="window.toast('Opening Privacy & Terms...')">
-        <b style="flex:1">Terms of Service & Privacy Policy</b>
+        <span class="ic" style="--c:var(--mu);width:36px;height:36px">${window.I('shield', 18)}</span>
+        <div style="flex:1;margin-left:6px;min-width:0">
+          <b>Terms of Service & Privacy</b>
+          <div class="mu" style="font-size:12px">Data privacy & clinical disclaimer</div>
+        </div>
         ${window.I('chev', 16)}
       </div>
 
       <!-- Rate App -->
       <div class="li" onclick="window.toast('Thank you for rating LifePro Fit!')">
-        <b style="flex:1;display:flex;align-items:center;gap:6px">
-          Rate LifePro Fit
-          <span style="color:var(--or)">★★★★★</span>
-        </b>
-        ${window.I('chev', 16)}
+        <span class="ic" style="--c:var(--or);width:36px;height:36px">${window.I('star', 18)}</span>
+        <div style="flex:1;margin-left:6px;min-width:0">
+          <b>Rate LifePro Fit</b>
+          <div class="mu" style="font-size:12px">Support us on App Store & Play Store</div>
+        </div>
+        <div style="display:flex;align-items:center;gap:4px">
+          <span style="color:var(--or);font-size:12px">★★★★★</span>
+          ${window.I('chev', 16)}
+        </div>
       </div>
     </div>
 

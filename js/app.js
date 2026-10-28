@@ -113,7 +113,10 @@ window.go = function (s, a) {
   if (window.Screens && typeof window.Screens[s] === 'function') {
     v.innerHTML = window.Screens[s](a);
     if ((s === 'ob' || s === 'profile_edit') && typeof window.initRulerSlider === 'function') {
-      requestAnimationFrame(() => window.initRulerSlider());
+      requestAnimationFrame(() => {
+        window.initRulerSlider();
+        setTimeout(() => window.initRulerSlider(), 60);
+      });
     }
   } else {
     v.innerHTML = `<div class="ctr"><div class="mu">Screen not found</div></div>`;
@@ -182,7 +185,15 @@ setInterval(() => {
   window.S.sp = Math.round(Math.max(94, Math.min(100, window.S.sp + rand(-0.8, 0.8))));
   window.S.tp = +Math.max(35.8, Math.min(37.6, window.S.tp + rand(-0.06, 0.06))).toFixed(1);
   window.S.hv = Math.round(Math.max(25, Math.min(90, window.S.hv + rand(-3, 3))));
-  window.S.hy = Math.round(Math.max(60, Math.min(100, window.S.hy + rand(-0.25, 0.1))));
+
+  // Cardiac & Exertion biometrics (derived from Baiget PPG + ECG)
+  const hrRatio = Math.max(0, (window.S.hr - 60) / 120);
+  window.S.rpe = Math.round(Math.max(1, Math.min(10, 2 + hrRatio * 7)));
+  window.S.hs = Math.round(Math.max(8, Math.min(85, (100 - window.S.hv) * 0.55 + hrRatio * 28)));
+  if (isRiding) {
+    window.S.kc = Math.round((window.S.kc || 420) + rand(0.2, 0.6));
+  }
+
   window.S.cd = Math.round(isRiding ? (isRun ? rand(160, 178) : rand(68, 92)) : rand(52, 74));
   window.S.lm = Math.round(rand(86, 98));
 

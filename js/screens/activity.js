@@ -6,17 +6,20 @@ window.Screens = window.Screens || {};
 
 // Row component for workout list
 window.rrow = function(r, i) {
+  const icon = r.ty === 'baiget' ? 'baiget' : (r.ty === 'physilog' ? 'physilog' : (r.ty === 'both' ? 'dual' : (r.ty === 'run' ? 'run' : 'bike')));
+  const color = r.ty === 'baiget' ? 'var(--rd)' : (r.ty === 'physilog' ? 'var(--pu)' : 'var(--ac)');
+  const statVal = r.km ? `${r.km.toFixed(1)} km` : `${r.hr || 136} bpm`;
   return `
     <div class="li" onclick="go('rd', ${i})">
-      <span class="ic" style="border-radius:50%">
-        ${window.I(r.ty === 'run' ? 'run' : 'bike')}
+      <span class="ic" style="border-radius:50%;color:${color};background:color-mix(in srgb, ${color} 14%, transparent)">
+        ${window.I(icon, 18)}
       </span>
-      <div style="flex:1;min-width:0">
+      <div style="flex:1;min-width:0;margin-left:6px">
         <b>${r.n}</b>
         <div class="mu">${r.d}</div>
       </div>
       <div style="text-align:right">
-        <b>${r.km.toFixed(1)} km</b>
+        <b>${statVal}</b>
         <div class="mu">${window.hm(r.m)}</div>
       </div>
     </div>

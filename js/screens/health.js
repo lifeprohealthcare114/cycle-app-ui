@@ -269,45 +269,124 @@ window.getVitalDeepDive = function(k, r) {
     `;
   }
 
-  if (k === 'hy') {
+
+
+  if (k === 'kc') {
     return `
-      <!-- Hydration Level Card -->
+      <!-- Caloric Burn Stages Card -->
       <div class="cd zn-card">
-        <div class="zn-card-title">Hydration & electrolyte balance</div>
+        <div class="zn-card-title">Metabolic Burn Breakdown</div>
         <div class="zn-row">
-          <span class="zn-label">Optimal (>80%)</span>
-          <div class="zn-bar"><div class="zn-fill" style="width:68%;background:#FCC232"></div></div>
-          <span class="zn-val">16h 20m</span>
+          <span class="zn-label">Fat oxidation</span>
+          <div class="zn-bar"><div class="zn-fill" style="width:64%;background:#FCC232"></div></div>
+          <span class="zn-val">270 kcal</span>
         </div>
         <div class="zn-row">
-          <span class="zn-label">Mild loss (70–80%)</span>
-          <div class="zn-bar"><div class="zn-fill" style="width:26%;background:#F59E0B"></div></div>
-          <span class="zn-val">6h 30m</span>
-        </div>
-        <div class="zn-row">
-          <span class="zn-label">Rehydrate (&lt;70%)</span>
-          <div class="zn-bar"><div class="zn-fill" style="width:6%;background:#EF4444"></div></div>
-          <span class="zn-val">1h 10m</span>
+          <span class="zn-label">Glycogen cardio</span>
+          <div class="zn-bar"><div class="zn-fill" style="width:36%;background:#F59E0B"></div></div>
+          <span class="zn-val">150 kcal</span>
         </div>
       </div>
-
       <div class="g2" style="margin-top:12px">
         <div class="cd" style="padding:16px 14px;margin:0">
-          <div class="mu" style="font-size:12px;font-weight:600">Estimated fluid loss</div>
+          <div class="mu" style="font-size:12px;font-weight:600">Active burn rate</div>
           <div class="bm" style="font-size:24px;margin-top:6px;font-weight:800">
-            350 <small>ml</small>
+            520 <small>kcal/h</small>
           </div>
-          <div style="color:var(--bl);font-size:11px;font-weight:700;margin-top:4px">
-            Recommended: 1–2 glasses
+          <div style="color:var(--gr);font-size:11px;font-weight:700;margin-top:4px">
+            High metabolic efficiency
           </div>
         </div>
         <div class="cd" style="padding:16px 14px;margin:0">
-          <div class="mu" style="font-size:12px;font-weight:600">Daily range</div>
+          <div class="mu" style="font-size:12px;font-weight:600">Today's total</div>
           <div class="bm" style="font-size:24px;margin-top:6px;font-weight:800">
-            68–94 <small>%</small>
+            ${window.S.kc} <small>kcal</small>
           </div>
           <div class="mu" style="font-size:11px;font-weight:500;margin-top:4px">
-            Lowest post-ride
+            Target 600 kcal
+          </div>
+        </div>
+      </div>
+    `;
+  }
+
+  if (k === 'rpe') {
+    return `
+      <!-- Borg RPE Exertion Card -->
+      <div class="cd zn-card">
+        <div class="zn-card-title">Perceived Exertion Zones (Borg Scale)</div>
+        <div class="zn-row">
+          <span class="zn-label">Light (1–3)</span>
+          <div class="zn-bar"><div class="zn-fill" style="width:30%;background:#10B981"></div></div>
+          <span class="zn-val">Warmup</span>
+        </div>
+        <div class="zn-row">
+          <span class="zn-label">Moderate (4–6)</span>
+          <div class="zn-bar"><div class="zn-fill" style="width:55%;background:#3B82F6"></div></div>
+          <span class="zn-val">Target aerobic</span>
+        </div>
+        <div class="zn-row">
+          <span class="zn-label">Hard (7–9)</span>
+          <div class="zn-bar"><div class="zn-fill" style="width:15%;background:#EF4444"></div></div>
+          <span class="zn-val">Anaerobic peak</span>
+        </div>
+      </div>
+      <div class="g2" style="margin-top:12px">
+        <div class="cd" style="padding:16px 14px;margin:0">
+          <div class="mu" style="font-size:12px;font-weight:600">Current effort</div>
+          <div class="bm" style="font-size:24px;margin-top:6px;font-weight:800">
+            ${window.S.rpe} <small>/ 10</small>
+          </div>
+          <div style="color:var(--gr);font-size:11px;font-weight:700;margin-top:4px">
+            Sustainable pace
+          </div>
+        </div>
+        <div class="cd" style="padding:16px 14px;margin:0">
+          <div class="mu" style="font-size:12px;font-weight:600">Clinical classification</div>
+          <div class="bm" style="font-size:20px;margin-top:6px;font-weight:800">
+            ${window.S.rpe <= 3 ? 'Light' : (window.S.rpe <= 6 ? 'Moderate' : 'Strenuous')}
+          </div>
+          <div class="mu" style="font-size:11px;font-weight:500;margin-top:4px">
+            Cardiopulmonary load
+          </div>
+        </div>
+      </div>
+    `;
+  }
+
+  if (k === 'hs') {
+    return `
+      <!-- Autonomic Stress Balance Card -->
+      <div class="cd zn-card">
+        <div class="zn-card-title">Autonomic Cardiac Stress Balance</div>
+        <div class="zn-row">
+          <span class="zn-label">Parasympathetic (Recovery)</span>
+          <div class="zn-bar"><div class="zn-fill" style="width:${Math.max(10, 100 - window.S.hs)}%;background:#10B981"></div></div>
+          <span class="zn-val">${Math.max(10, 100 - window.S.hs)}%</span>
+        </div>
+        <div class="zn-row">
+          <span class="zn-label">Sympathetic (Cardiac Stress)</span>
+          <div class="zn-bar"><div class="zn-fill" style="width:${window.S.hs}%;background:#8B5CF6"></div></div>
+          <span class="zn-val">${window.S.hs}%</span>
+        </div>
+      </div>
+      <div class="g2" style="margin-top:12px">
+        <div class="cd" style="padding:16px 14px;margin:0">
+          <div class="mu" style="font-size:12px;font-weight:600">Cardiac stress index</div>
+          <div class="bm" style="font-size:24px;margin-top:6px;font-weight:800">
+            ${window.S.hs} <small>%</small>
+          </div>
+          <div style="color:${window.S.hs < 40 ? 'var(--gr)' : 'var(--or)'};font-size:11px;font-weight:700;margin-top:4px">
+            ${window.S.hs < 35 ? '✓ Well rested & recovered' : 'Moderate stress load'}
+          </div>
+        </div>
+        <div class="cd" style="padding:16px 14px;margin:0">
+          <div class="mu" style="font-size:12px;font-weight:600">Derived from</div>
+          <div class="bm" style="font-size:17px;margin-top:6px;font-weight:800">
+            HRV + ECG PPG
+          </div>
+          <div class="mu" style="font-size:11px;font-weight:500;margin-top:4px">
+            Continuous Baiget sync
           </div>
         </div>
       </div>
@@ -406,43 +485,110 @@ window.getVitalDeepDive = function(k, r) {
 
 // Health Overview Screen
 window.Screens.hl = function() {
-  const all = ['hr', 'sp', 'tp', 'hv', 'hy', 'cd', 'lm'];
-  const lv = all.filter(window.avail);
-  const ks = lv.length ? lv : all;
-  const vs = ks.filter(k => k !== 'cd' && k !== 'lm');
-  const outOfRangeCount = vs.filter(k => !window.inr(k)).length;
+  const hasB = window.hasBaiget();
+  const hasP = window.hasPhysilog();
+  const hasBoth = hasB && hasP;
+
+  let ks = [];
+  let screenTitle = 'Health';
+  let badgeLabel = '';
+
+  if (hasBoth) {
+    screenTitle = 'Telemetry & Health';
+    badgeLabel = '● Baiget + Physilog Connected';
+    ks = ['hr', 'sp', 'tp', 'hv', 'cd', 'lm'];
+  } else if (hasB) {
+    screenTitle = 'Baiget Health & Vitals';
+    badgeLabel = '● Baiget PPG + ECG Active';
+    ks = ['hr', 'sp', 'tp', 'hv'];
+  } else if (hasP) {
+    screenTitle = 'Physilog Biomechanics';
+    badgeLabel = '● Physilog Motion Active';
+    ks = ['cd', 'lm'];
+  } else {
+    screenTitle = 'Health & Telemetry';
+    badgeLabel = '○ Connect Sensor';
+    ks = ['hr', 'sp', 'tp', 'hv'];
+  }
 
   return `
-    <div class="rw" style="margin-bottom:16px">
-      <div class="t1" style="flex:1">Health</div>
+    <div class="rw" style="margin-bottom:8px">
+      <div class="t1" style="flex:1">${screenTitle}</div>
       <button class="ble-btn ${window.nc() > 0 ? 'connected' : ''}" aria-label="Bluetooth Sensors" onclick="go('dev')" title="Bluetooth Sensors">
         ${window.I('bt', 20)}
         ${window.nc() > 0 ? '<span class="ble-badge"></span>' : ''}
       </button>
     </div>
 
-    <!-- ECG Link Banner if ECG Sensor connected -->
-    ${window.S.c.e ? `
-      <div class="cd" onclick="go('ecg')">
-        <div class="rw" style="color:var(--gr);font-weight:600;font-size:13px;gap:8px">
+
+
+    <!-- Real-Time ECG Link Banner (Only if Baiget PPG+ECG is active) -->
+    ${hasB ? `
+      <div class="cd" onclick="go('ecg')" style="cursor:pointer;padding:14px 16px;background:linear-gradient(180deg, color-mix(in srgb, var(--gr) 8%, var(--cd)) 0%, var(--cd) 100%)">
+        <div class="rw" style="color:var(--gr);font-weight:700;font-size:13px;gap:8px">
           ${window.I('pulse', 16)}
-          <span style="flex:1">Real-time heart rhythm</span>
+          <span style="flex:1">Real-Time ECG Cardiac Rhythm</span>
           ${window.I('chev', 16)}
         </div>
-        <svg viewBox="0 0 300 50" style="width:100%;margin-top:10px">
-          <path class="dr" pathLength="1" d="M0 30H60L68 28L74 10L80 44L86 30H130L138 28L144 10L150 44L156 30H200L208 28L214 10L220 44L226 30H300" fill="none" stroke="var(--gr)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        <svg viewBox="0 0 300 46" style="width:100%;margin-top:10px">
+          <path class="dr" pathLength="1" d="M0 26H60L68 24L74 8L80 40L86 26H130L138 24L144 8L150 40L156 26H200L208 24L214 8L220 40L226 26H300" fill="none" stroke="var(--gr)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
       </div>
     ` : ''}
 
-    <!-- Vitals Tiles Grid -->
+    ${hasP && !hasB ? `
+      <!-- Physilog Pedal Stroke Symmetry Banner -->
+      <div class="cd zn-card" style="margin-bottom:14px">
+        <div class="zn-card-title">Physilog Leg Balance & Gait</div>
+        <div class="zn-row">
+          <span class="zn-label">Left leg</span>
+          <div class="zn-bar"><div class="zn-fill" style="width:50.2%;background:var(--pu)"></div></div>
+          <span class="zn-val">50.2%</span>
+        </div>
+        <div class="zn-row">
+          <span class="zn-label">Right leg</span>
+          <div class="zn-bar"><div class="zn-fill" style="width:49.8%;background:#3B82F6"></div></div>
+          <span class="zn-val">49.8%</span>
+        </div>
+      </div>
+    ` : ''}
+
+    <!-- Dynamic Metric Tiles Grid -->
     <div class="g2">
       ${ks.map(window.tl).join('')}
     </div>
 
+    ${hasB ? `
+      <!-- Baiget Cardio Exertion, RPE & Heart Stress Section -->
+      <div class="t2" style="font-size:13px;font-weight:700;color:var(--mu);text-transform:uppercase;letter-spacing:0.04em;margin:18px 4px 8px">Cardio Exertion & Heart Stress</div>
+      <div class="sx" style="grid-template-columns:1fr 1fr 1fr;margin-bottom:14px">
+        <div onclick="det('kc')" style="cursor:pointer;padding:12px 10px">
+          <div class="rw" style="color:var(--or);font-size:11px;font-weight:700;gap:4px">
+            ${window.I('bolt', 13)}Calories
+          </div>
+          <b style="font-size:16px;margin-top:4px"><span data-k="kc">${window.fv('kc')}</span> <small style="font-size:11px;font-weight:600;color:var(--mu)">kcal</small></b>
+          <div class="mu" style="font-size:10px;margin-top:2px">Active burn</div>
+        </div>
+        <div onclick="det('rpe')" style="cursor:pointer;padding:12px 10px">
+          <div class="rw" style="color:#3B82F6;font-size:11px;font-weight:700;gap:4px">
+            ${window.I('award', 13)}RPE
+          </div>
+          <b style="font-size:16px;margin-top:4px"><span data-k="rpe">${window.fv('rpe')}</span> <small style="font-size:11px;font-weight:600;color:var(--mu)">/ 10</small></b>
+          <div class="mu" style="font-size:10px;margin-top:2px">Borg scale</div>
+        </div>
+        <div onclick="det('hs')" style="cursor:pointer;padding:12px 10px">
+          <div class="rw" style="color:#8B5CF6;font-size:11px;font-weight:700;gap:4px">
+            ${window.I('pulse', 13)}Heart stress
+          </div>
+          <b style="font-size:16px;margin-top:4px"><span data-k="hs">${window.fv('hs')}</span><small style="font-size:11px;font-weight:600;color:var(--mu)">%</small></b>
+          <div class="mu" style="font-size:10px;margin-top:2px">${window.S.hs < 35 ? 'Low stress' : (window.S.hs < 65 ? 'Moderate' : 'Elevated')}</div>
+        </div>
+      </div>
+    ` : ''}
+
     ${ks.includes('hr') ? `
-      <div class="mu" style="margin-top:6px;text-align:center">
-        Max estimated heart rate: ${220 - window.S.u.age} bpm
+      <div class="mu" style="margin-top:10px;text-align:center;font-size:12px">
+        Max estimated heart rate: ${220 - window.S.u.age} bpm · Baiget Clinical PPG
       </div>
     ` : ''}
   `;
@@ -478,10 +624,9 @@ window.Screens.ecg = function() {
         </svg>
       </div>
 
-      <div class="sx" style="grid-template-columns:1fr 1fr 1fr;margin-top:14px">
+      <div class="sx" style="grid-template-columns:1fr 1fr;margin-top:14px">
         <div class="mu">Heart rate<b><span data-k="hr">${window.fv('hr')}</span> bpm</b></div>
         <div class="mu">HRV<b><span data-k="hv">${window.fv('hv')}</span> ms</b></div>
-        <div class="mu">Hydration<b><span data-k="hy">${window.fv('hy')}</span> %</b></div>
       </div>
     ` : window.emp('pulse', 'ECG sensor not connected', 'Pair your SmartGrip ECG sensor to stream continuous cardiac waveforms.')}
   `;

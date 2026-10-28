@@ -66,9 +66,25 @@ server.on('error', (err) => {
   }
 });
 
-server.listen(currentPort, () => {
+const os = require('os');
+
+function getWifiIp() {
+  const nets = os.networkInterfaces();
+  for (const name of Object.keys(nets)) {
+    for (const net of nets[name]) {
+      if (net.family === 'IPv4' && !net.internal) {
+        return net.address;
+      }
+    }
+  }
+  return 'localhost';
+}
+
+server.listen(currentPort, '0.0.0.0', () => {
+  const wifiIp = getWifiIp();
   console.log(`\n==================================================`);
-  console.log(`  LifePro Fit Prototype Server is Running!`);
-  console.log(`  Local URL: http://localhost:${currentPort}/`);
+  console.log(`  LifePro Fit Server is Running!`);
+  console.log(`  Local URL:   http://localhost:${currentPort}/`);
+  console.log(`  Network URL: http://${wifiIp}:${currentPort}/`);
   console.log(`==================================================\n`);
 });
